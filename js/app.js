@@ -16,6 +16,12 @@ The following will hide the start button and show the game board
   document.getElementById('play-area').style.opacity = '1';
 });
 
+/**
+ * Listen for keyboard presses
+ */
+document.addEventListener('keydown', function(event){game.handleKeydown(event)
+});
+
 
 
 /*
