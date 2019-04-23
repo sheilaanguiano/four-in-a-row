@@ -25,15 +25,37 @@ class Space {
     svgSpace.setAttributeNS(null, "stroke", "none");
 
     document.getElementById("mask").appendChild(svgSpace);
-
   }
 
-}
-/*
-X and Y are the coordinate values of the Space on the board, this way we know what space bject is located where. this is really important to know when it comes to dropping tokens into the board.
+    /**
+   * Updates space to reflect a token has been dropped into it.
+   * @param {Object} token - The dropped token
+   */
+   mark(token){
+     this.token = token;
+   }
 
-Token property is a way to represent whether or  not a given space is holding a token. In other words is a way to tell if a token has been dropped into that particular space.
+   /**
+    * Checks if space has an associated token to find its owner
+    * @return  {(null|Object)} Returns null or the owner object of the space's associated token.
+    */
+   get owner(){
+     if(this.token === null){
+       return null;
+     } else {
+       return this.token.owner;
+     }
+   }
 
-A "render method" is a term the teacher user to describe a way to create the visual components associated with each of our JS objects. These methods write the HTML visual components and attach the HTML to the DOM
 
-*/
+
+
+  }
+  /*
+  X and Y are the coordinate values of the Space on the board, this way we know what space bject is located where. this is really important to know when it comes to dropping tokens into the board.
+
+  Token property is a way to represent whether or  not a given space is holding a token. In other words is a way to tell if a token has been dropped into that particular space.
+
+  A "render method" is a term the teacher user to describe a way to create the visual components associated with each of our JS objects. These methods write the HTML visual components and attach the HTML to the DOM
+
+  */
